@@ -1,0 +1,4 @@
+::ng-deep .mat-tab-list .mat-tab-labels {
+    color:blue;
+    background-color: yellow;
+    }

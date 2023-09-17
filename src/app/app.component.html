@@ -1,0 +1,38 @@
+<!-- <app-internshipform></app-internshipform> -->
+<!-- <app-search-project-screen></app-search-project-screen> -->
+<!-- <app-candidate-interviews></app-candidate-interviews> -->
+<!-- <app-mentor-profile></app-mentor-profile> -->
+<!-- <app-actual-mentor></app-actual-mentor> -->
+<!-- <app-add-project-component></app-add-project-component> -->
+<!-- <app-mentor-login></app-mentor-login> -->
+<!-- <app-header></app-header> -->
+<!-- <app-main-login></app-main-login> -->
+<!-- <app-add-mentor></app-add-mentor> -->
+<!-- <app-admin-project-approval></app-admin-project-approval> -->
+<!-- <app-candidate-interview-screen></app-candidate-interview-screen> -->
+<!-- <app-page-notfound></app-page-notfound> -->
+<div style="display: flex; flex-direction: row; height: 55px; width: 100%; align-items: center; background-color: #963596; font-family: 'Ubuntu', sans-serif;">
+    <div style="width: 30%; display: flex; flex-direction: row; justify-content: flex-start; align-items: center;" >
+        <mat-icon style="padding: 10px; color: white !important;">dashboard</mat-icon>
+        <h2 style="color: white;">Instep Platform</h2>
+    </div>
+    <div style="width: 50%; display: flex; flex-direction: row; ">
+        <mat-form-field appearance="outline" style="background-color: white; margin-top: 20px; width: 100%;">
+            <mat-label>Search Candidate</mat-label>
+            <input matInput >
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" style="margin-top: 20px; width: 40px !important;height:56px !important;" ><mat-icon style="font-size: 20px;">search</mat-icon></button>
+    </div>
+    <div *ngIf="loggedIn" style="width:20%; display: flex; flex-direction: row; justify-content: flex-end; align-items: center;">
+        <h4 style=" color: white; cursor: pointer;" (click)="mentorMainPage()">{{role}}</h4>
+        <img src="../../assets/profile_pic.png" alt="Profile pic" style="height:30px; width:30px;border-radius: 50%;padding: 10px; cursor: pointer;" (click)="mentorPage()">
+    </div>
+    <div *ngIf="!loggedIn" style="width:20%; display: flex; flex-direction: row; justify-content: flex-end; align-items: center;">
+        <h3 style="cursor: pointer;">Nobody</h3>
+        <img src="../../assets/userprofile.jpg" alt="Profile pic" style="height:30px; width:30px;border-radius: 50%;padding: 10px; cursor: pointer;" >
+    </div>
+    <button *ngIf="loggedIn" mat-raised-button style="height: 40px; margin-right: 10px;" (click)="logout()">Logout</button>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,12 @@
+<div style="padding: 15px; font-family: 'Ubuntu', sans-serif;">
+    <div style="display: flex; flex-direction: row;  justify-content: center;">
+        <h3 style="width: 10%; max-width: 400px;">Project Id</h3>
+        <h3 style="width: 50%; max-width: 400px;">Project</h3>
+        <h3 style="width: 40%; max-width: 200px;">No. Of Mentors Allocated</h3>
+    </div>
+    <div style="display: flex; flex-direction: row;  justify-content: center;" *ngFor="let p of projectArray">
+        <h3 style="width: 10%; max-width: 400px; font-weight: 100;">{{p.projectId}}</h3>
+        <h3 style="width: 50%; max-width: 400px; font-weight: 100;">{{p.title}}</h3>
+        <h3 style="width: 50%; max-width: 200px; font-weight: 100;">{{p.mentorsAllocated}}</h3>
+    </div>
+</div>

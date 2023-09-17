@@ -1,0 +1,37 @@
+<div>
+    <h1 mat-dialog-title>Mentor Details</h1>
+    <div mat-dialog-content [formGroup]="form" style="display: flex; flex-direction: column;">
+        <div style="display: flex;">
+            <mat-form-field>
+                <mat-label>Emp Id</mat-label>
+                <input matInput formControlName="mentorId">
+            </mat-form-field>
+            <mat-form-field style="margin-left: 20px;">
+                <mat-label>Mentor Name</mat-label>
+                <input matInput formControlName="mentorName">
+            </mat-form-field>
+        </div>
+        <div style="display: flex;">
+            <mat-form-field>
+                <mat-label>Unit</mat-label>
+                <input matInput formControlName="unit">
+            </mat-form-field>
+            <mat-form-field style="margin-left: 20px;">
+                <mat-label>Location</mat-label>
+                <input matInput formControlName="location">
+            </mat-form-field>
+        </div>
+    <mat-form-field>
+        <mat-label>No. of Projects</mat-label>
+        <input matInput formControlName="numberOfProjects">
+    </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="this.form.value" [disabled]="form.invalid" cdkFocusInitial>Add Mentor</button>
+    </div>
+</div>
+
+
+
+

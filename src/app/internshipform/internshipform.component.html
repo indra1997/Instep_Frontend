@@ -1,0 +1,231 @@
+<form  [formGroup]="formGroup">
+  <mat-stepper [linear]="false" #stepper formArrayName="formArray">
+    <mat-step formGroupName="0" [stepControl]="$any(formArray)?.get([0])">
+      
+        <ng-template matStepLabel>Tell Us About Yourself</ng-template>
+        <div style="margin-top: 10px;margin-bottom: 10px;">
+          <div class = "row_group">
+            <div class="left_field">
+              <mat-form-field style="width:40vw;" >
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First Name" formControlName="firstName" required>
+              </mat-form-field>
+            </div>
+            <div class="right_field">
+              <mat-form-field style="width:40vw">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last name" formControlName="lastName" required>
+              </mat-form-field>
+            </div>
+          </div>
+    
+          <div class = "row_group">
+            <div class="left_field">
+              <mat-form-field style="width:40vw">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="xyz@abc.com" formControlName="emailId" required>
+              </mat-form-field>
+            </div>
+            <div class="right_field">
+              <mat-form-field style="width:40vw">
+                <mat-label>Alternate Email</mat-label>
+                <input matInput placeholder="xyz@abc.com" formControlName="alternateEmail" required>
+              </mat-form-field>
+            </div>
+          </div>
+    
+          <div class = "row_group">
+            <div class="left_field">
+              <mat-form-field style="width:40vw">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput placeholder="Mobile Number" formControlName="mobile" required>
+              </mat-form-field>
+            </div>
+            <div class="right_field">
+              <mat-form-field style="width:40vw">
+                <mat-label>Additional Mobile Number</mat-label>
+                <input matInput placeholder="Mobile Number" formControlName="alternateMobile" >
+              </mat-form-field>
+            </div>
+          </div>
+    
+          <div class = "row_group">
+            <div class="left_field">
+              <mat-form-field style="width:40vw">
+                <mat-label>Permanent Work Authorization</mat-label>
+                <mat-select formControlName="workAuthCountry">
+                  <mat-option *ngFor="let country of countries" value="{{country}}">
+                    {{country}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="right_field">
+              <mat-form-field style="width:40vw">
+                <mat-label>Internship Location</mat-label>
+                <mat-select [(value)]="selectedInternshipLocation" formControlName="internshipLocation">
+                  <mat-option *ngFor="let location of internshipLocations" value="{{location}}">
+                    {{location}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div style="display: flex;align-items: center;justify-content: center;">
+          <button mat-button  matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step formGroupName="1" [stepControl]="$any(formArray)?.get([1])">
+      
+        <ng-template matStepLabel>What Are You Studying and Where?</ng-template>
+        
+        
+          <div class = "row_group">
+            <div class="left_field">
+              <mat-form-field style="width:40vw">
+                <mat-label>Geo Region</mat-label>
+                <mat-select  formControlName="geoRegion">
+                  <mat-option *ngFor="let geograRegion of geograRegions" [value]="geograRegion">
+                    {{geograRegion}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          
+          <div class="row_group">
+            <div class="left_field">
+              <mat-form-field style="width:40vw">
+                <mat-label>Academic level</mat-label>
+                <mat-select  formControlName="academicLevel">
+                  <mat-option *ngFor="let academicLevel of academicLevels" value="{{academicLevel}}">
+                    {{academicLevel}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="right_field">
+              <mat-form-field style="width:40vw">
+                <mat-label>Academic year</mat-label>
+                <mat-select formControlName="academicYear">
+                  <mat-option *ngFor="let filteredAcademicYear of filteredAcademicYears" value="{{filteredAcademicYear}}">
+                    {{filteredAcademicYear}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          
+        
+  
+        <div class = "row_group">
+          <div class="left_field">
+            <mat-form-field style="width:40vw">
+              <mat-label>Overall CGPA</mat-label>
+              <input matInput placeholder="0" formControlName="cgpa" required>
+            </mat-form-field>
+          </div>
+          <div class="right_field">
+            <mat-form-field style="width:40vw">
+              <mat-label>Academic Concentration</mat-label>
+              <input matInput placeholder="E.g. Software Engineering, Marketing, Computer Engineering" formControlName="academicConcentration" required>
+            </mat-form-field>
+          </div>
+        </div>
+  
+        <div class = "row_group">
+          <div class="left_field">
+            <mat-form-field style="width:40vw">
+              <mat-label>Expected graduation date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="expectedGraduationDate">
+              <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+          </div>
+          <div class="right_field">
+            <mat-form-field style="width:40vw">
+              <mat-label>Key Skills</mat-label>
+              <input matInput placeholder="E.g. Java, Python, Competative analysis, Data Science" formControlName="keySkills" required>
+            </mat-form-field>
+          </div>
+        </div>
+  
+        <div style="display: flex;align-items: center;justify-content: center;">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step formGroupName="2" [stepControl]="$any(formArray)?.get([2])">
+        <ng-template matStepLabel>What Would You Like Your Internship To Be?</ng-template>
+  
+        <!-- multiple selectors are remaining -->
+        <div class="row_group">
+          <div class="left_field">
+            <mat-form-field style="width:40vw">
+              <mat-label>Area of Interest</mat-label>
+              <mat-select  formControlName="areaOfInterest" >
+                <mat-option *ngFor="let arfInterest of areaOfInterests" value="{{arfInterest}}">
+                  {{arfInterest}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="right_field">
+            <mat-form-field style="width:40vw">
+              <mat-label>Project Preference (Select exactly 1 Preference) </mat-label>
+              <mat-select formControlName="projectPreference" >
+                <mat-option *ngFor="let arfInterest of areaOfInterests" value="{{arfInterest}}">
+                  {{arfInterest}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+  
+        <div class="row_group">
+          <div class="left_field">
+            <mat-form-field style="width:40vw">
+              <!-- <mat-label>can intern from date...</mat-label>
+              <input matInput [matDatepicker]="picker1" formControlName="whenCanYouInternWithUsDateRange"> -->
+              <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+              <!-- <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker> -->
+  
+              <mat-label>When can you intern with us?(pick a date range)</mat-label>
+              <mat-date-range-input formGroupName="dateRangeFormGroup" [rangePicker]="picker1">
+                <input matStartDate formControlName="start" placeholder="Start date">
+                <input matEndDate formControlName="end" placeholder="End date">
+              </mat-date-range-input>
+              <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+              <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker1></mat-date-range-picker>
+  
+              <!-- <mat-error *ngIf="dateRangeFormGroup.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+              <mat-error *ngIf="dateRangeFormGroup.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error> -->
+            </mat-form-field>
+            
+          </div>
+          
+        </div>
+        <div style="display: flex;align-items: center;justify-content: center;">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p style="display: flex;align-items: center;justify-content: center;">You are now done.</p>
+      <div style="display: flex;align-items: center;justify-content: center;">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="submitForm()" >Submit</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</form>
+
+

@@ -1,0 +1,35 @@
+<div>
+    <h1 mat-dialog-title>Project Details</h1>
+    <div mat-dialog-content [formGroup]="form" style="display: flex; flex-direction: column;">
+        <div style="display: flex;">
+            <mat-form-field>
+                <mat-label>Project Id</mat-label>
+                <input matInput formControlName="projectId">
+            </mat-form-field>
+            <mat-form-field style="margin-left: 20px;">
+                <mat-label>Project Title</mat-label>
+                <input matInput formControlName="title">
+            </mat-form-field>
+        </div>
+        <div style="display: flex;">
+            <mat-form-field>
+                <mat-label>Location</mat-label>
+                <input matInput formControlName="location">
+            </mat-form-field>
+            <mat-form-field style="margin-left: 20px;">
+                <mat-label>Required Skills</mat-label>
+                <input matInput formControlName="requiredSkills">
+            </mat-form-field>
+        </div>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="this.form.value" [disabled]="form.invalid" cdkFocusInitial>Add Project</button>
+    </div>
+</div>
+
+

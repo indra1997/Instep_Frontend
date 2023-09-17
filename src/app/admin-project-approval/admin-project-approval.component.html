@@ -1,0 +1,28 @@
+<div style="line-height: 0px;font-family: 'Ubuntu', sans-serif;margin: 10px;">
+    <div style="display: flex; align-items: center;">
+        <h2>Projects</h2>
+    </div>
+
+    <div style="border:3px solid whitesmoke;border-radius: 10px; padding: 10px;font-family: 'Ubuntu', sans-serif;margin-top: 30px;">
+        <div style="display: flex; border-bottom: 3px solid whitesmoke;">
+            <h3 style="width: 10%;">Project Id</h3>
+            <h3 style="width: 20%;">Project Title</h3>
+            <h3 style="width: 20%;">Description</h3>
+            <h3 style="width: 20%;">Required Skills</h3>
+            <h3 style="width: 10%;">Location</h3>
+            <h3 style="width: 20%;">Actions</h3>
+        </div>
+        <div *ngFor="let p of projectArray" style="display: flex; padding: 5px;">
+            <h3 style="width: 10%;font-weight: 200;">{{p.projectId}}</h3>
+            <h3 style="width: 20%;font-weight: 200;">{{p.title}}</h3>
+            <div style="width: 20%;"><h3 style="font-weight: 200;">{{p.description}}</h3></div>
+            <h3 style="width: 20%;font-weight: 200;">{{p.requiredSkills}}</h3>
+            <h3 style="width: 10%;font-weight: 200;">{{p.location}}</h3>
+            <div style="width: 20%; display: flex; justify-content: center; margin-left: 10px;margin-right: 10px;">
+                <button mat-raised-button style="margin: 10px;">Approve</button>
+                <button mat-raised-button style="margin: 10px;">Assign</button>
+            </div>
+        </div>
+    </div>
+    
+</div>

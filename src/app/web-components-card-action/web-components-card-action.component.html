@@ -1,0 +1,71 @@
+<div class="row ">
+    <div class="col-md-12">
+        <!-- <div>
+            <h2 class="ds_h2">Action Card</h2>
+            <span class="ds_absRight">
+                <a href="javascript:void(0);" class="ds_marRght16" [ngClass]="{'active': codeView}" (click)="codeView=true;designView=false"><i aria-hidden="true" class="material-icons">code</i></a>
+                <a href="javascript:void(0);" class="active" [ngClass]="{'active': designView}" (click)="codeView=false;designView=true"><i aria-hidden="true" class="material-icons" > video_label</i></a>
+            </span>
+        </div> -->
+        <div> 
+            <div class="designView" *ngIf="designView">
+                <!-- <h5 class="ds_h5Inner">Action Card</h5>                 -->
+                <mat-card class="DSA_wb_card-widget DSA_wb_actionCard">
+                    <mat-card-content>
+                        <span class="DSA_wb_listLeft">
+                            <div class="whiteIconNoshadow-Circle float-left marR24">
+                                <i aria-hidden="true" class="icon x-24 flight-icon" aria-label="flight icon"> </i>                                        
+                            </div>                                
+                            <div class="DSA_wb_marginicon40"> 
+                                <label class="DSA_wb_caption web-GreyLight d-block marB4 DSA_wb_text-1line">GICS</label>
+                                <span class="DSA_wb_mainBodyTxt2 web-GreyDarkest d-block DSA_wb_text-1line">Create Cycle</span>
+                            </div>
+                        </span> 
+                        <a href="javascript:void(0)" class="DSA_wb_vertical-RightCenter" aria-label="close icon">
+                            <i aria-hidden="true" class="icon x-16 close-icon" ></i>
+                        </a>                                                               
+                    </mat-card-content>               
+                </mat-card>                    
+            </div>
+            <!-- <div class="codeView" *ngIf="codeView">
+                <mat-tab-group class="custom_tab">
+                    <mat-tab label="HTML"> 
+                        <div class="padTB16">  
+                            <a href="javascript:void(0);" class="ds_copyIcon float-right material-icons" (click)='codeCopy($event)'>file_copy</a>
+                            <pre class="ds_pre clearboth">
+                                &lt;mat-card class="DSA_wb_card-widget DSA_wb_actionCard"&gt;
+                                &lt;mat-card-content&gt;
+                                    &lt;span class="DSA_wb_listLeft"&gt;
+                                        &lt;div class="whiteIconNoshadow-Circle float-left marR24"&gt;
+                                            &lt;i aria-hidden="true" class="icon x-24 flight-icon" aria-label="flight icon"&gt; &lt;/i&gt;                                        
+                                        &lt;/div&gt;                                
+                                        &lt;div class="DSA_wb_marginicon40"&gt; 
+                                            &lt;label class="DSA_wb_caption web-GreyLight d-block marB4 DSA_wb_text-1line"&gt;GICS&lt;/label&gt;
+                                            &lt;span class="DSA_wb_mainBodyTxt2 web-GreyDarkest d-block DSA_wb_text-1line"&gt;Create Cycle&lt;/span&gt;
+                                        &lt;/div&gt;
+                                    &lt;/span&gt; 
+                                    &lt;a href="javascript:void(0)" class="DSA_wb_vertical-RightCenter" aria-label="close icon"&gt;
+                                        &lt;i aria-hidden="true" class="icon x-16 close-icon" &gt;&lt;/i&gt;
+                                    &lt;/a&gt;                                                               
+                                &lt;/mat-card-content&gt;               
+                            &lt;/mat-card&gt;                              
+                            </pre>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="TS"> 
+                        <div class="padTB16">
+                            --none--                                
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="API"> 
+                        <div class="padTB16">
+                            <h3 class="ds_h3Inner">API reference for Angular Material card</h3>
+                            <pre class="">import &#123;MatCardModule&#125; from '@angular/material/card';</pre>   
+                            Reference Material <a href="https://material.angular.io/components/card/api" target="_blank" rel="noopener noreferrer" >Card</a> 
+                        </div>
+                    </mat-tab>
+                </mat-tab-group> 
+            </div> -->
+        </div>
+    </div>
+</div>

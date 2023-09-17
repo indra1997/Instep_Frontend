@@ -1,0 +1,14 @@
+<div *ngIf="wrongCredentials"><h3>Please Enter Correct Credentials</h3></div>
+<div style="display: flex; align-items: center; justify-content: center; margin-top: 10%;">
+    <div style="display: flex; flex-direction: column;" [formGroup]="form">
+        <mat-form-field appearance="outline">
+            <mat-label>Admin Id</mat-label>
+            <input matInput formControlName="adminId" >
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password">
+          </mat-form-field>
+          <button type="submit" mat-raised-button color="primary" style="margin: 15px;" [disabled]="form.invalid" (click)="loginAdmin()">Login</button>
+    </div>
+</div>
