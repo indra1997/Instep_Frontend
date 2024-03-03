@@ -22,5 +22,18 @@ export class AdminProjectApprovalComponent implements OnInit{
   });
   }
 
+  approveProject(p : ProjectDetails){
+    if(window.confirm('Are sure you want to Approve this project ?')){
+      //put your delete method logic here
+      p.status = 'Approved';
+      this.http.put<ProjectDetails>('http://localhost:8765/instep/projects/update', p).subscribe((response)=>{
+          console.log('Project Updated');
+        },
+        (errorResponse) => {
+          console.log(errorResponse)
+        });
+     }
+  }
+
 
 }

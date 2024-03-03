@@ -4,6 +4,8 @@ import { Admin } from '../models/Admin';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { SnackBarService } from '../snack-bar.service';
+
 
 @Component({
   selector: 'app-admin-login',
@@ -15,7 +17,7 @@ export class AdminLoginComponent {
   admin!: Admin;
   wrongCredentials: boolean = false;
 
-  constructor(fb: FormBuilder, private http:HttpClient, private router: Router, private auth:AuthService) {
+  constructor(fb: FormBuilder, private http:HttpClient, private router: Router, private auth:AuthService, private snackBarService : SnackBarService) {
    this.form = fb.group({
      adminId: ['', Validators.required],
      password: ['', Validators.required],
@@ -37,7 +39,9 @@ export class AdminLoginComponent {
   (errorResponse) => {
     console.log(errorResponse)
     sessionStorage.clear();
+    this.snackBarService.error("Wrong Id or Password");
     this.wrongCredentials = true;
+
   });
   
 }

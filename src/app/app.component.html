@@ -11,6 +11,7 @@
 <!-- <app-admin-project-approval></app-admin-project-approval> -->
 <!-- <app-candidate-interview-screen></app-candidate-interview-screen> -->
 <!-- <app-page-notfound></app-page-notfound> -->
+
 <div style="display: flex; flex-direction: row; height: 55px; width: 100%; align-items: center; background-color: #963596; font-family: 'Ubuntu', sans-serif;">
     <div style="width: 30%; display: flex; flex-direction: row; justify-content: flex-start; align-items: center;" >
         <mat-icon style="padding: 10px; color: white !important;">dashboard</mat-icon>
@@ -21,7 +22,13 @@
             <mat-label>Search Candidate</mat-label>
             <input matInput >
         </mat-form-field>
-        <button type="submit" mat-raised-button color="primary" style="margin-top: 20px; width: 40px !important;height:56px !important;" ><mat-icon style="font-size: 20px;">search</mat-icon></button>
+        <button type="submit" mat-raised-button color="primary" style="margin-top: 20px; width: 40px !important;margin-right: 1vw;
+        background: #963596;
+        color: white;
+        font-size: 20px;
+        padding: 10px;
+        height: 56px;
+        width: 50px; " ><mat-icon style="font-size: 20px;">search</mat-icon></button>
     </div>
     <div *ngIf="loggedIn" style="width:20%; display: flex; flex-direction: row; justify-content: flex-end; align-items: center;">
         <h4 style=" color: white; cursor: pointer;" (click)="mentorMainPage()">{{role}}</h4>

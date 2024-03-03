@@ -1,0 +1,16 @@
+::ng-deep .custom-styleError{
+    --mdc-snackbar-container-color: red !important;
+    color:white !important; 
+  }
+  ::ng-deep .custom-styleSuccess{
+    --mdc-snackbar-container-color: green !important;
+    color:white !important; 
+  }
+mat-form-field {
+    margin-right: 12px;
+  }
+  .mat-mdc-snack-bar-container {
+    --mat-mdc-snack-bar-button-color: red;
+    --mdc-snackbar-container-color: black;
+    --mdc-snackbar-supporting-text-color: yellow;
+}

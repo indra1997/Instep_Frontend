@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { InternshipformComponent } from './internshipform/internshipform.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
-import {NgFor} from '@angular/common';
+import {AsyncPipe, NgFor} from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
@@ -45,7 +45,11 @@ import { AdminScreenComponent } from './admin-screen/admin-screen.component';
 import { ProjectMentorStatsScreenComponent } from './project-mentor-stats-screen/project-mentor-stats-screen.component';
 import { CandidateAddedSuccessScreenComponent } from './candidate-added-success-screen/candidate-added-success-screen.component';
 import { AdminProfilePageComponent } from './admin-profile-page/admin-profile-page.component';
-
+import { ErrorSnackBarComponent } from './error-snack-bar/error-snack-bar.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ScheduleInterviewScreenComponent } from './schedule-interview-screen/schedule-interview-screen.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { DialogScheduleInterviewComponent } from './dialog-schedule-interview/dialog-schedule-interview.component';
 
 
 
@@ -73,6 +77,9 @@ import { AdminProfilePageComponent } from './admin-profile-page/admin-profile-pa
     ProjectMentorStatsScreenComponent,
     CandidateAddedSuccessScreenComponent,
     AdminProfilePageComponent,
+    ScheduleInterviewScreenComponent,
+    DialogScheduleInterviewComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -95,9 +102,18 @@ import { AdminProfilePageComponent } from './admin-profile-page/admin-profile-pa
     HttpClientModule,
     MatExpansionModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    ErrorSnackBarComponent,
+    MatSnackBarModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    AsyncPipe,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

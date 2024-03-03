@@ -11,6 +11,7 @@ import { DialogOverviewExampleDialogComponent } from '../dialog-overview-example
 
 import {FormBuilder, Validators, FormGroup} from "@angular/forms";
 import { HttpClient } from '@angular/common/http';
+import { SnackBarService } from '../snack-bar.service';
 
 
 
@@ -29,6 +30,8 @@ export class AddMentorComponent implements OnInit{
     location: "",
     unit: "",
     noOfProjectsMentoring:0, status:""};
+
+    form: FormGroup;
 
     mentorArray: MentorDetails[] = [
       {mentorId:122,
@@ -68,8 +71,14 @@ export class AddMentorComponent implements OnInit{
               noOfProjectsMentoring:-1,status:"Approved"}];
 
 
-  constructor(public dialog: MatDialog, private http: HttpClient) {
-    
+  constructor(public dialog: MatDialog, private http: HttpClient, fb: FormBuilder, private snackBarService : SnackBarService) {
+    this.form = fb.group({
+      mentorId: ['', Validators.required],
+      name: ['', Validators.required],
+      unit: ['', Validators.required],
+      location: ['', Validators.required],
+      noOfProjectsMentoring: ['', Validators.required],   
+  });
   }
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
@@ -100,10 +109,19 @@ export class AddMentorComponent implements OnInit{
           noOfProjectsMentoring:0, status:""};
       }else{
         this.mentor = result;
+        this.http.post<MentorDetails>('http://localhost:8765/instep/mentors', result).subscribe((response)=>{
+          console.log('Mentor Added');
+          this.snackBarService.success("Mentor Added Successfully!");
+        },
+        (errorResponse) => {
+          console.log(errorResponse)
+        });
       }
       
     });
   }
+
+
 
 
 }

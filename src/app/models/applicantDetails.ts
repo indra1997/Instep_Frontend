@@ -16,6 +16,7 @@ export class ApplicantDetails {
     keySkills !: string;
     areaOfInterest !: string;
     projectPreference !: string;
+    interviewScheduled !: string;
     // qualification !: string;
 
     // password!: string;
