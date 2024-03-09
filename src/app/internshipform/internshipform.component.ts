@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApplicantDetails } from '../models/applicantDetails';
 import { Router } from '@angular/router';
+import {environment} from '../environment';
+
 @Component({
   selector: 'app-internshipform',
   templateUrl: './internshipform.component.html',
@@ -397,7 +399,7 @@ export class InternshipformComponent implements OnInit{
     this.applicant.projectPreference = this.formArray?.get([2])?.value.projectPreference[0];
     
 
-    this.http.post<ApplicantDetails>('http://localhost:8765/instep/candidates', this.applicant).subscribe((response)=>{
+    this.http.post<ApplicantDetails>(environment.apiUrl + '/instep/candidates', this.applicant).subscribe((response)=>{
       console.log('candidate added !');
       this.router.navigate(['/candidateAddedSuccess']);
   },

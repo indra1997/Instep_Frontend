@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Admin } from '../models/Admin';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../environment';
 
 @Component({
   selector: 'app-admin-profile-page',
@@ -14,7 +15,7 @@ export class AdminProfilePageComponent implements OnInit{
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
-    this.http.get<Admin>("http://localhost:8765/instep/admins/" + sessionStorage.getItem("adminId")).subscribe(
+    this.http.get<Admin>(environment.apiUrl+"/instep/admins/" + sessionStorage.getItem("adminId")).subscribe(
       data => {
         this.adminDetails = data;
  

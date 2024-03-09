@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import {environment} from '../environment';
 
 import {NgIf} from '@angular/common';
 import { DialogOverviewExampleDialogComponent } from '../dialog-overview-example-dialog/dialog-overview-example-dialog.component';
@@ -82,7 +83,7 @@ export class AddMentorComponent implements OnInit{
   }
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
-    this.http.get<MentorDetails[]>('http://localhost:8765/instep/mentors').subscribe((response)=>{
+    this.http.get<MentorDetails[]>( environment.apiUrl+ '/instep/mentors').subscribe((response)=>{
     this.mentorArray = response;
       console.log('got mentors');
   },
@@ -109,7 +110,7 @@ export class AddMentorComponent implements OnInit{
           noOfProjectsMentoring:0, status:""};
       }else{
         this.mentor = result;
-        this.http.post<MentorDetails>('http://localhost:8765/instep/mentors', result).subscribe((response)=>{
+        this.http.post<MentorDetails>(environment.apiUrl+'/instep/mentors', result).subscribe((response)=>{
           console.log('Mentor Added');
           this.snackBarService.success("Mentor Added Successfully!");
         },

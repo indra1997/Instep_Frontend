@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { SnackBarService } from '../snack-bar.service';
+import {environment} from '../environment';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class AdminLoginComponent {
   var admin = new Admin();
   admin.adminId = this.form.value.adminId;
   admin.password = this.form.value.password;
-  this.http.post<Admin>('http://localhost:8765/instep/admins/login', admin).subscribe((response)=>{
+  this.http.post<Admin>(environment.apiUrl+'/instep/admins/login', admin).subscribe((response)=>{
     this.admin = response;
     this.auth.nextAdmin(response);
       sessionStorage.setItem("mentorId", "" + response.adminId);

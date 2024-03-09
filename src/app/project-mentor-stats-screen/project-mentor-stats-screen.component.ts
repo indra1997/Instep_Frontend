@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectDetails } from '../models/projectDetails';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../environment';
 
 @Component({
   selector: 'app-project-mentor-stats-screen',
@@ -11,7 +12,7 @@ export class ProjectMentorStatsScreenComponent implements OnInit{
   projectArray !: ProjectDetails[];
   constructor(private http: HttpClient){}
   ngOnInit(): void {
-    this.http.get<ProjectDetails[]>('http://localhost:8765/instep/projects').subscribe((response)=>{
+    this.http.get<ProjectDetails[]>(environment.apiUrl + '/instep/projects').subscribe((response)=>{
       this.projectArray = response;
     },
     (errorResponse) => {

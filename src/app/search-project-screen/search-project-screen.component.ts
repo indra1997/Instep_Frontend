@@ -1,6 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { ProjectDetails } from '../models/projectDetails';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../environment';
 
 @Component({
   selector: 'app-search-project-screen',
@@ -40,7 +41,7 @@ export class SearchProjectScreenComponent implements OnInit{
   getData(){
     console.log("SSFG");
     this.flag = true;
-    this.http.get<ProjectDetails>("http://localhost:8080/get-project-details").subscribe(
+    this.http.get<ProjectDetails>(environment.apiUrl + "/get-project-details").subscribe(
       data => {
         this.projectData = data;
        console.log(this.projectData);

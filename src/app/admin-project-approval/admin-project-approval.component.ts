@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectDetails } from '../models/projectDetails';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../environment';
 
 @Component({
   selector: 'app-admin-project-approval',
@@ -12,7 +13,7 @@ export class AdminProjectApprovalComponent implements OnInit{
   constructor(private http: HttpClient){
   }
   ngOnInit(): void {
-    this.http.get<ProjectDetails[]>('http://localhost:8765/instep/projects').subscribe((response)=>{
+    this.http.get<ProjectDetails[]>(environment.apiUrl+'/instep/projects').subscribe((response)=>{
     this.projectArray = response;
       console.log('got projects');
   },
@@ -26,7 +27,7 @@ export class AdminProjectApprovalComponent implements OnInit{
     if(window.confirm('Are sure you want to Approve this project ?')){
       //put your delete method logic here
       p.status = 'Approved';
-      this.http.put<ProjectDetails>('http://localhost:8765/instep/projects/update', p).subscribe((response)=>{
+      this.http.put<ProjectDetails>(environment.apiUrl+'/instep/projects/update', p).subscribe((response)=>{
           console.log('Project Updated');
         },
         (errorResponse) => {

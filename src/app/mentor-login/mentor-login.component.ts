@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MentorDetails } from '../models/mentorDetails';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import {environment} from '../environment';
 
 @Component({
   selector: 'app-mentor-login',
@@ -27,7 +28,7 @@ export class MentorLoginComponent {
     var mentor = new MentorDetails();
     mentor.mentorId = this.form.value.mentorId;
     mentor.password = this.form.value.password;
-    this.http.post<MentorDetails>('http://localhost:8765/instep/mentors/login', mentor).subscribe((response)=>{
+    this.http.post<MentorDetails>(environment.apiUrl + '/instep/mentors/login', mentor).subscribe((response)=>{
       this.mentor = response;
       this.auth.nextMentor(response);
         sessionStorage.setItem("mentorId", "" + response.mentorId);

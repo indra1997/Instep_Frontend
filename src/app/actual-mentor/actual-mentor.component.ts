@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { ProjectDetails } from '../models/projectDetails';
 import { MentorDetails } from '../models/mentorDetails';
 
+import {environment} from '../environment';
+
 
 
 @Component({
@@ -20,7 +22,7 @@ export class ActualMentorComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.http.get<MentorDetails>("http://localhost:8765/instep/mentors/" + sessionStorage.getItem("mentorId")).subscribe(
+    this.http.get<MentorDetails>(environment.apiUrl+"/instep/mentors/" + sessionStorage.getItem("mentorId")).subscribe(
       data => {
         this.mentorDetails = data;
  

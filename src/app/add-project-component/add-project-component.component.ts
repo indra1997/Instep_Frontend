@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogOverviewAddProjectComponent } from '../dialog-overview-add-project/dialog-overview-add-project.component';
 import { ProjectServiceService } from '../services/project-service.service';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../environment';
 
 @Component({
   selector: 'app-add-project-component',
@@ -41,7 +42,7 @@ export class AddProjectComponentComponent implements OnInit{
       }else{
         this.project = result;
         this.project.status = "Pending";
-        this.http.post<ProjectDetails>('http://localhost:8765/instep/projects', this.project).subscribe((response)=>{
+        this.http.post<ProjectDetails>(environment.apiUrl+'/instep/projects', this.project).subscribe((response)=>{
           console.log('Project Added');
         },
         (errorResponse) => {

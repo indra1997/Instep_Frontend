@@ -4,6 +4,7 @@ import { ApplicantDetails } from '../models/applicantDetails';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogScheduleInterviewComponent } from '../dialog-schedule-interview/dialog-schedule-interview.component';
 import { timing } from '../models/timing';
+import {environment} from '../environment';
 
 @Component({
   selector: 'app-candidate-interview-screen',
@@ -19,7 +20,7 @@ export class CandidateInterviewScreenComponent implements OnInit{
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
-    this.http.get<ApplicantDetails[]>('http://localhost:8765/instep/candidates').subscribe((response)=>{
+    this.http.get<ApplicantDetails[]>(environment.apiUrl+'/instep/candidates').subscribe((response)=>{
     this.candidateArray = response;
       console.log('got candidates');
   },
@@ -41,7 +42,7 @@ export class CandidateInterviewScreenComponent implements OnInit{
         if(window.confirm('Are sure you want to Schedule this Interview ?')){
           this.t = result;
           this.t.to = new Date();
-        this.http.post<any>('http://localhost:8765/instep/admins/schedule', this.t).subscribe((response)=>{
+        this.http.post<any>(environment.apiUrl+'/instep/admins/schedule', this.t).subscribe((response)=>{
           console.log('Meeting Scheduled');
         },
         (errorResponse) => {
