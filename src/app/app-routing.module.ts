@@ -12,6 +12,7 @@ import { InternshipformComponent } from './internshipform/internshipform.compone
 import { CandidateAddedSuccessScreenComponent } from './candidate-added-success-screen/candidate-added-success-screen.component';
 import { MentorProfileComponent } from './mentor-profile/mentor-profile.component';
 import { AdminProfilePageComponent } from './admin-profile-page/admin-profile-page.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   { path : '', redirectTo: 'generalLogin', pathMatch: "full" },
@@ -34,7 +35,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
 })
 export class AppRoutingModule { }
